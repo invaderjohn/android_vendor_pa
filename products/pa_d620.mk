@@ -28,15 +28,22 @@ $(call inherit-product, vendor/pa/configs/telephony.mk)
 # Include AOSPA common configuration
 include vendor/pa/main.mk
 
+# Include AOSPA common configuration
+$(call inherit-product, vendor/pa/main.mk)
+
 # Inherit device configuration
 $(call inherit-product, device/lge/d620/full_d620.mk)
+$(call inherit-product, vendor/lge/d620/d620-vendor.mk)
+
+PRODUCT_COPY_FILES +=  \
+    vendor/pa/prebuilt/bootanimation/800x480.zip:system/media/bootanimation.zip
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := d620
-PRODUCT_NAME := full_d620
-PRODUCT_BRAND := lge
-PRODUCT_MODEL := d620
-PRODUCT_MANUFACTURER := LGE
+PRODUCT_NAME := pa_d620
+PRODUCT_BRAND := LGE
+PRODUCT_MODEL := D620r
+PRODUCT_MANUFACTURER := lge
 
 PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=d620 BUILD_FINGERPRINT=lge/g2m_global_com/g2m:4.4.2/KOT49I.A1401238405/1401238405:user/release-keys PRIVATE_BUILD_DESC="g2m_global_com-user 4.4.2 KOT49I.A1401238405 1401238405 release-keys"
 
